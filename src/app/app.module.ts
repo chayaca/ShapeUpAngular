@@ -1,6 +1,6 @@
 import { BrowserModule} from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
-import { MatButtonModule, MatMenuModule, MatSidenavModule,MatNativeDateModule,MatFormFieldModule ,MatDatepickerModule,MatIconModule,MatInputModule} from '@angular/material';
+import { MatButtonModule, MatMenuModule, MatSidenavModule,MatNativeDateModule,MatFormFieldModule ,MatDatepickerModule,MatIconModule,MatInputModule, MatAutocompleteModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';  
 import { AppRoutingModule } from './app-routing.module';
@@ -12,60 +12,49 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './NewAccount/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { NewMemberComponent } from './NewAccount/new-member/new-member.component';
-import { FirstPageComponent } from './first-page/first-page.component';
+
 import { MainPageComponent } from './main-page/main-page.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DrowingComponent } from './drowing/drowing.component';
-import { DialogAllModule } from '@syncfusion/ej2-angular-popups';
-
-import { DiagramAllModule, SymbolPaletteAllModule, OverviewAllModule } from '@syncfusion/ej2-angular-diagrams';
-
-import { ListViewAllModule } from '@syncfusion/ej2-angular-lists';
-
-import { CircularGaugeModule } from '@syncfusion/ej2-angular-circulargauge';
-
-import { DropDownListAllModule } from '@syncfusion/ej2-angular-dropdowns';
-
-import { MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
-
-import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
-
-import { NumericTextBoxModule, ColorPickerModule, UploaderModule, TextBoxModule } from '@syncfusion/ej2-angular-inputs';
-
-import { DropDownButtonModule } from '@syncfusion/ej2-angular-splitbuttons';
-
-import { ButtonModule, CheckBoxModule, RadioButtonModule } from '@syncfusion/ej2-angular-buttons';
-
-import { HttpModule } from '@angular/http';
-
-
-
-import { CommonModule } from '@angular/common';
-
-import { ResultComponent } from './result/result.component';
+// import { DisplayResultComponent } from './display-result/display-result.component';
+import { DrawShapesComponent } from './draw-shapes/draw-shapes.component';
 import { ProjectOptionsComponent } from './project-options/project-options.component';
-import { ShowshapeComponent } from './showshape/showshape.component';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { AreaComponent } from './area/area.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { HttpModule } from '@angular/http';
+import { CommonModule } from '@angular/common';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DisplayResultComponent } from './display-result/display-result.component';
+
+// import { IgxNavbarModule } from 'igniteui-angular';
+
+
 
 
 
 const appRoutes: Routes = [
   {path: 'main-page', component:  MainPageComponent},
-  {path: 'first-page', component:  FirstPageComponent},
+  {path: 'project-options', component:  ProjectOptionsComponent},
+  {path: 'project-details', component:  ProjectDetailsComponent},
   {path: 'new-member', component:  NewMemberComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent },
   {path: 'welcome-page', component: WelcomePageComponent },
-  {path: 'drowing', component:DrowingComponent},
-  {path: '', redirectTo: 'welcome-page', pathMatch: 'full'}
+  {path: '', redirectTo: 'welcome-page', pathMatch: 'full'},
+  {path: 'project-details/:id', component: ProjectDetailsComponent },
+  {path: 'draw-shapes', component: DrawShapesComponent },
+  {path: 'navbar', component: NavbarComponent },
+  {path:'display-result',component:DisplayResultComponent},
+  //{path: '', redirectTo: 'navbar', pathMatch: 'full'},
+   
 ];
-// const material=[ 
-//   MatDatepickerModule ,
-//   MatNativeDateModule
-// ]
+
 @NgModule({
   imports: [
-     MatButtonModule,
+    BrowserModule,
+    MatButtonModule,
     MatMenuModule,
     FormsModule,
+    ReactiveFormsModule,
     MatSidenavModule,
     HttpClientModule  ,
     AppRoutingModule,
@@ -74,30 +63,14 @@ const appRoutes: Routes = [
     MatDatepickerModule,
     MatIconModule,
     MatInputModule,
-    BrowserModule,
-    RouterModule.forRoot(appRoutes),
-    AppRoutingModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
-    DiagramAllModule,
-    DialogAllModule,
-    SymbolPaletteAllModule, 
-    OverviewAllModule,
-    ListViewAllModule,
     CommonModule,
-    CircularGaugeModule,
-    DropDownListAllModule,
-    MultiSelectModule,
-    ToolbarModule,
-    NumericTextBoxModule,
-    ColorPickerModule,
-    UploaderModule,
-    TextBoxModule,
-    DropDownButtonModule,
-    ButtonModule,
-    CheckBoxModule,
-    HttpModule,
-    RadioButtonModule,
+    MatSliderModule,
+    // IgxNavbarModule,
+    MatAutocompleteModule,
+   
+    RouterModule.forRoot(appRoutes)
+  
   ],
   declarations: [
     AppComponent,
@@ -107,15 +80,14 @@ const appRoutes: Routes = [
     SignUpComponent,
     ForgotPasswordComponent,
     NewMemberComponent,
-    FirstPageComponent,
+    
     MainPageComponent,
-    DrowingComponent,
-   
-    ResultComponent,
-   
+    DisplayResultComponent,
+    DrawShapesComponent,
     ProjectOptionsComponent,
-   
-    ShowshapeComponent
+    ProjectDetailsComponent,
+    AreaComponent,
+    NavbarComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

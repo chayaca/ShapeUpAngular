@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Members } from '../Classes/members';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShapeUpServiceService } from '../shape-up-service.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,23 +16,45 @@ export class SignInComponent implements OnInit {
   constructor(private router: Router, private shapeUpService: ShapeUpServiceService) { 
     this.bool=false;
   }
-getBool(){
-  return this.bool;
-}
-  getMembers(name:string, password:string){
-    debugger;
-  this.shapeUpService.getMember(name, password).subscribe(data=>{
-    this.currentM=data;
-  });
+  ngOnInit() {
+  }
+  getBool(){
+    return this.bool;
+  }
+//   GetMembers(name:string, password:string){
+//       this.shapeUpService.GetMember(name, password).subscribe((res:Members) => {
+//       console.log(res);
+//       var data=res;
+//       console.log(data);
+//       this.currentM.id=data.id;
+//       this.currentM.userName=data.userName;
+//       this.currentM.userPassword=data.userName;
+//       this.currentM.projects=data.projects;
+//       this.currentM.accountDate=data.accountDate;
+//       this.currentM.email=data.email;
+//       console.log(this.currentM);
+//    debugger
+//     if(this.currentM!=null){
+//       this.router.navigate(['./project-options']);
+//     }
+//     else{
+//       this.bool=true;
+//     }
+//   });
+// }
+  
+GetMembers(name:string, password:string){
+this.shapeUpService.GetMember(name, password).subscribe(data=>{
+  this.shapeUpService.member=data;
+  this.currentM=data;
   debugger;
-  if(this.currentM!=null){
-    debugger;
-    this.router.navigate(['./first-page']);
+ if(this.currentM!=null){
+    this.router.navigate(['./project-options']);
   }
   else{
   this.bool=true;
   }
+});
 }
-ngOnInit() {
-}
+
 }
