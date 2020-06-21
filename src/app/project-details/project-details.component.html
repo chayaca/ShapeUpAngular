@@ -31,6 +31,9 @@
       <button mat-button  (click)="  AddProject(p.projectName, p.orderDate, p.dueDate, p.projectStatus)" color="primary" *ngIf="newProject" >Add New Project</button>
       <button mat-button  (click)="olddrawing(p.projectName, p.orderDate, p.dueDate, p.projectStatus)" color="primary" *ngIf="!newProject">Open Project</button>
       <button mat-button  (click)="DeleteProject()" color="primary" *ngIf="!newProject">Delete Project</button>
+      <!-- <div  (click)=" AddProject(p.projectName, p.orderDate, p.dueDate, p.projectStatus)" color="primary" *ngIf="newProject"><img src="\assets\image\icons8_add.ico"></div>
+      <div button mat-button  (click)="DeleteProject()" color="primary" *ngIf="!newProject"><img src="\assets\image\icons8_trash.ico"></div><div (click)="olddrawing(p.projectName, p.orderDate, p.dueDate, p.projectStatus)" color="primary" *ngIf="!newProject"><img src="\assets\image\icons8_enter.ico"></div>
+       -->
   </div>
   
    <!-- <div *ngIf="fb.firstName.errors?.min">First Name is required</div> -->

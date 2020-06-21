@@ -196,10 +196,12 @@ export class AreaComponent implements OnInit {
       s.point=areashape.point;
       s.unit=this.area.unitNum;
       s.area=true;
+      debugger;
       this.areaService.EditShape(s).subscribe((data:fullShape) => {
         this.currentA = data.shape;
         this.currentA.point=data.points;
         this.areaService.area = this.currentA;
+        debugger;
       });
       this.router.navigate(['./draw-shapes']);
     }
