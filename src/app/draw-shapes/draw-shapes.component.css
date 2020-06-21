@@ -1,6 +1,6 @@
-/* .rt{
+ /* .rt{
     padding-right: 50%;
-} */
+} 
 .main {
     direction: rtl;
     width: 100%;
@@ -22,7 +22,11 @@
   }
 .num{
     width: 2px;
+<<<<<<< HEAD
 }
 img{
     width:110px;
 }
+=======
+} */
+>>>>>>> 98a9d0545bed95929b54575f843f154c63f02734

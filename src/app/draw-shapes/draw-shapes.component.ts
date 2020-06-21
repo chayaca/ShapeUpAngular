@@ -185,7 +185,7 @@ export class DrawShapesComponent implements OnInit {
   getCursorPosition(event){
     console.log(event.clientX, event.clientY);
     this.model.x = (event.clientX-235)/20;
-    this.model.y = ((this.ctx.canvas.height-event.clientY)-30)/20;
+    this.model.y = (this.ctx.canvas.height-(event.clientY)-30)/20;
     console.log(((event.clientY-30)/20));
   }
   drawCoordinates(){
