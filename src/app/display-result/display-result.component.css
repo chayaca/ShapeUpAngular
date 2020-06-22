@@ -1,3 +1,11 @@
 img{
     width:110px;
 }
+
+.display-result {
+    margin: 5%;
+    width: 90%;
+    overflow-x: auto;
+    height: 650px;
+    overflow-y: auto;
+}

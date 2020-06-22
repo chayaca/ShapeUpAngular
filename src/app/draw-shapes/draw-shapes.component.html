@@ -6,23 +6,61 @@
 <div class="container">
     <div class="main">
         <div class="flex-grow1">
-            <div (click)="finish()"><img src="\assets\image\circled-right-2.png"></div>
-           
-            <input class="btn btn-default" type="button" [disabled]="model.x==undefined||model.y==undefined" value="Enter" (click)="drawLine(model.x, model.y, false)">
+            <div class="mb-3 mt-1">
+                <div *ngIf="!viewNavbar" class="d-inline-block" (click)="back()"><img
+                        src="\assets\image\circled-left.png"></div>
+                <div class="d-inline-block  float-right" (click)="finish()"><img
+                        src="\assets\image\circled-right-2.png"></div>
+                <!-- 
+            <input class="btn btn-default" type="button" [disabled]="model.x==undefined||model.y==undefined"
+                value="Enter" (click)="drawLine(model.x, model.y, false)"> -->
+
+            </div>
+            <input id="clear" #clear class="btn btn-default top-button" type="button" value="Clear"
+                (click)="clearScreen()">
+            <input id="saveButton" #saveButton class="btn btn-default  top-button" type="button" value="Save"
+                style="display: none;" (click)="saveShape()">
+            <input id="delete" #delete class="btn btn-default top-button" type="button" value="Delete"
+                style="display: none;" (click)="deleteShape()">
+            <input id="update" #update class="btn btn-default top-button" type="button" value="Update"
+                style="display: none;" (click)="updateShape()">
         </div>
         <div class="flex-grow3">
-           <canvas id="canvas" #canvas (click)="getCursorPosition($event)" width="1000" height="500" style="border:1px solid darkblue;"></canvas>
+            <canvas id="canvas" #canvas (click)="getCursorPosition($event)" width="1000" height="500"
+                style="border:1px solid darkblue;"></canvas>
+            <table id="stable" #stable style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Shapes Added</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let shape of shapes">
+                        <td #id id="id" style="display: none;">{{shape.tempId}}</td>
+                        <td><canvas id="scanvas" #scanvas width="200" height="100" style="border:0px solid darkblue;"
+                                (click)="drawShape(id.innerHTML)"></canvas></td>
+                    </tr>
+                </tbody>
+                <tr>
+                </tr>
+            </table>
         </div>
+
         <div class="flex-grow1">
-            
-            <input type="number" placeholder="x-coordinate"  [(ngModel)]="model.x">
-    <input class="num" type="number" placeholder="y-coordinate"  [(ngModel)]="model.y"> 
-    <div *ngIf="!viewNavbar" (click)="back()"><img src="\assets\image\circled-left.png"></div>
-    <input id="clear" #clear class="btn btn-default" type="button" value="Clear"  (click)="clearScreen()">
-    <input id="saveButton" #saveButton class="btn btn-default" type="button" value="Save"  style="display: none;" (click)="saveShape()">
-    <input id="delete" #delete class="btn btn-default" type="button" value="Delete"  style="display: none;" (click)="deleteShape()">
-    <input id="update" #update class="btn btn-default" type="button" value="Update"  style="display: none;" (click)="updateShape()">
-    <table id="stable" #stable style="display: none;">
+
+            <input class="btn btn-default" type="button" [disabled]="model.x==undefined||model.y==undefined"
+                value="Enter" (click)="drawLine(model.x, model.y, false)">
+            <input type="number" placeholder="x-coordinate" [(ngModel)]="model.x">
+            <input class="num" type="number" placeholder="y-coordinate" [(ngModel)]="model.y">
+
+            <!-- <input id="clear" #clear class="btn btn-default" type="button" value="Clear" (click)="clearScreen()">
+            <input id="saveButton" #saveButton class="btn btn-default" type="button" value="Save" style="display: none;"
+                (click)="saveShape()">
+            <input id="delete" #delete class="btn btn-default" type="button" value="Delete" style="display: none;"
+                (click)="deleteShape()">
+            <input id="update" #update class="btn btn-default" type="button" value="Update" style="display: none;"
+                (click)="updateShape()"> -->
+            <!-- <table id="stable" #stable style="display: none;">
         <thead>
             <tr>
                 <th>Shapes Added</th>
@@ -35,32 +73,32 @@
             </tr>
          </tbody><tr>
         </tr>
-    </table>
-    <table id="table" #table>
-        <thead>
-            <tr>
-                <th style="display: none;">ID</th>
-                <th>Point</th>
-                <th>X-Coordinate</th>
-                <th>Y-coordinate</th>
-                <th style="display: none;"></th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr *ngFor="let point of points">
-               <td #id id="id" style="display: none;">{{point.id}}</td>
-               <td> {{ point.char }}</td>
-               <td #x><input id="x" #x type="number" value="{{ point.x }}"></td>
-               <td #y><input id="y" #y type="number" value="{{ point.y }}"></td>
-               <td><input id="change" #change class="btn btn-default" type="button" value="Change" (click)="changePoint(x.value, y.value, id.innerHTML)"></td>
-            </tr>
-         </tbody><tr>
-        </tr>
-    </table>
+    </table> -->
+            <table id="table" #table>
+                <thead>
+                    <tr>
+                        <th style="display: none;">ID</th>
+                        <th>Point</th>
+                        <th>X-Coordinate</th>
+                        <th>Y-coordinate</th>
+                        <th style="display: none;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let point of points">
+                        <td #id id="id" style="display: none;">{{point.id}}</td>
+                        <td> {{ point.char }}</td>
+                        <td #x><input id="x" #x type="number" value="{{ point.x }}"></td>
+                        <td #y><input id="y" #y type="number" value="{{ point.y }}"></td>
+                        <td><input id="change" #change class="btn btn-default" type="button" value="Change"
+                                (click)="changePoint(x.value, y.value, id.innerHTML)"></td>
+                    </tr>
+                </tbody>
+                <tr>
+                </tr>
+            </table>
         </div>
     </div>
-   
-    
+
+
 </div>
-
-

@@ -34,8 +34,16 @@
     display: flex;
   }
 
+  .finished {
+    padding-right: 50px;
+  }
+
+  .unfinished {
+    padding-left: 50px;
+  }
+
   .flex-grow1{
-    flex-grow: 1;
+    flex-grow: 0.5;
   }
   
   .flex-grow2{

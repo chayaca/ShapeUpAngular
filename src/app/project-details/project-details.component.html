@@ -1,41 +1,42 @@
+<div class="example-container">
+  <h3><b>Create project</b></h3>
 
-<div class="example-container"> 
-    <h3><b>Create project</b></h3>
-  
-        <br>
-        <mat-form-field appearance="fill" >
-          <mat-label >Project Name:</mat-label>
-          <input matInput [(ngModel)]="p.projectName" >
-       
-        </mat-form-field>
-      <br>
-      <mat-form-field color="blue">
-       <mat-label>Date order:</mat-label>
-       <input matInput [matDatepicker]="picker1" [min]="minDate" [matDatepicker]="dateFilter" [(ngModel)]="p.orderDate" >
-       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-       <mat-datepicker #picker1></mat-datepicker>
-      </mat-form-field>
-      <br>
-      <mat-form-field >
-       <mat-label >Date due:</mat-label>
-       <input matInput [matDatepicker]="picker2" [min]="minDate" [matDatepicker]="dateFilter" [(ngModel)]="p.dueDate">
-       <mat-datepicker-toggle matSuffix [for]="picker2"  ></mat-datepicker-toggle>
-       <mat-datepicker #picker2 color="blue"></mat-datepicker>
-      </mat-form-field>
-      <br>
-      <mat-form-field appearance="fill" >
-        <mat-label >Project Status:</mat-label>
-        <input matInput [(ngModel)]="p.projectStatus">
-      </mat-form-field>
-      <br>
-      <button mat-button  (click)="  AddProject(p.projectName, p.orderDate, p.dueDate, p.projectStatus)" color="primary" *ngIf="newProject" >Add New Project</button>
-      <button mat-button  (click)="olddrawing(p.projectName, p.orderDate, p.dueDate, p.projectStatus)" color="primary" *ngIf="!newProject">Open Project</button>
-      <button mat-button  (click)="DeleteProject()" color="primary" *ngIf="!newProject">Delete Project</button>
-      <!-- <div  (click)=" AddProject(p.projectName, p.orderDate, p.dueDate, p.projectStatus)" color="primary" *ngIf="newProject"><img src="\assets\image\icons8_add.ico"></div>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Project Name:</mat-label>
+    <input matInput [(ngModel)]="p.projectName">
+
+  </mat-form-field>
+  <br>
+  <mat-form-field color="blue">
+    <mat-label>Date order:</mat-label>
+    <input matInput [matDatepicker]="picker1" [min]="minDate" [matDatepicker]="dateFilter" [(ngModel)]="p.orderDate">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Date due:</mat-label>
+    <input matInput [matDatepicker]="picker2" [min]="minDate" [matDatepicker]="dateFilter" [(ngModel)]="p.dueDate">
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2 color="blue"></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Project Status:</mat-label>
+    <input matInput [(ngModel)]="p.projectStatus">
+  </mat-form-field>
+  <br>
+  <button mat-button (click)="  AddProject(p.projectName, p.orderDate, p.dueDate, p.projectStatus)" color="primary"
+    *ngIf="newProject">Add New Project</button>
+  <button mat-button class="m-2" (click)="olddrawing(p.projectName, p.orderDate, p.dueDate, p.projectStatus)"
+    color="primary" *ngIf="!newProject">Open Project</button>
+  <button mat-button class="m-2" (click)="DeleteProject()" color="primary" *ngIf="!newProject">Delete Project</button>
+  <!-- <div  (click)=" AddProject(p.projectName, p.orderDate, p.dueDate, p.projectStatus)" color="primary" *ngIf="newProject"><img src="\assets\image\icons8_add.ico"></div>
       <div button mat-button  (click)="DeleteProject()" color="primary" *ngIf="!newProject"><img src="\assets\image\icons8_trash.ico"></div><div (click)="olddrawing(p.projectName, p.orderDate, p.dueDate, p.projectStatus)" color="primary" *ngIf="!newProject"><img src="\assets\image\icons8_enter.ico"></div>
        -->
-  </div>
-  
-   <!-- <div *ngIf="fb.firstName.errors?.min">First Name is required</div> -->
-   <!-- [disabled]="newProject" -->
-   <!-- [disabled]="newProject" -->
+</div>
+
+<!-- <div *ngIf="fb.firstName.errors?.min">First Name is required</div> -->
+<!-- [disabled]="newProject" -->
+<!-- [disabled]="newProject" -->

@@ -201,6 +201,7 @@ export class AreaComponent implements OnInit {
         this.currentA = data.shape;
         this.currentA.point=data.points;
         this.areaService.area = this.currentA;
+        // this.shapeService.currentShape=this.currentShape;
         debugger;
       });
       this.router.navigate(['./draw-shapes']);

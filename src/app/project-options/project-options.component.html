@@ -18,17 +18,17 @@
 <!-- 
 <app-project-details [p]="ShapesService.currentProject"></app-project-details> -->
 
-<div class="main">
-  <div class="flex-grow1">
+<div class="main"> 
+  <div class="flex-grow1 finished">
     <h1>Finished Projects</h1>
     <div *ngFor="let project of doneProjects" (click)="doubleclick(project.id)">{{project.projectName}}</div>
   </div>
-  <div class="flex-grow2">
-    <button mat-button (click)="doubleclick(-1)" class="but">New project</button>
+  <div class="flex-grow2 text-center">
+    <button mat-button (click)="doubleclick(-1)" class="but m-3" style="margin: auto 0">New project</button>
     <app-project-details [projectChanged]="projectChangedSubject.asObservable()"></app-project-details>
 
   </div>
-  <div class="flex-grow">
+  <div class="flex-grow1 unfinished">
     <h1>Unfinished Projects</h1>
     <div *ngFor="let project of undoneProjects" (click)="doubleclick(project.id)">{{project.projectName}}</div>
   </div>
